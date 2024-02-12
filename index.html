@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <title>WebShop</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <section class="header">
+                <div class="header__body _container">
+                    <div class="header__content">
+                        <div class="header__logo">
+                            <a href="/" class="logo"><span class="red">Web</span><span class="blue">Shop</span></a>
+                        </div>
+                        <nav class="header__navbar navbar">
+                            <ul class="navbar__items items">
+                                <li class="navbar__item item">
+                                    <div class="navbar__search">
+                                        <input type="text" placeholder="Что найти?">
+                                        <a href="#" class="navbar__btn search-btn">
+                                            <img src="./static/img/header-search.svg" alt="header-search.svg">
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="navbar__item item">
+                                    <a href="#" class="navbar__btn catalog-btn">
+                                        <img src="./static/img/catalog.svg" alt="catalog.svg">
+                                    </a>
+                                </li>
+                                <li class="navbar__item item">
+                                    <a href="#" class="navbar__btn basket-btn">
+                                        <img src="./static/img/basket.svg" alt="basket.svg">
+                                    </a>
+                                </li>
+                                <li class="navbar__item item">
+                                    <a href="#" class="navbar__btn profile-btn">
+                                        <img src="./static/img/profile.svg" alt="profile.svg">
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+        </header>
+        
+        <aside class="catalog-wrapper">
+            <div class="catalog">
+                <div class="catalog__body">
+                    <div class="catalog__exit">
+                        <img src="./static/img/cancel.svg" alt="cancel.svg">
+                    </div>
+                    <ul class="catalog__items items">
+                        {{ li }}
+                        <li class="catalog__item item">
+                            <a href="">Одежда</a>
+                        </li>
+                        <li class="catalog__item item">
+                            <a href="">Аксессуары</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </aside>
+        <main>
+            <section class="page">
+                <div class="page__body _container">
+                    <div class="page__content">
+                        
+                        <div class="page__left">
+                            <h1>Интернет магазин</h1>
+                            <div class="page__text">
+                                Покупай все, что тебе по душе
+                            </div>
+                            <div class="page__btn">
+                                <a class="page-btn red_btn btn">Каталог</a>
+                            </div>
+                        </div>
+                        <div class="page__right">
+                            <img src="./static/img/page.png" alt="page.png">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="footer__body _container">
+                    <div class="footer__content">
+                        <ul class="footer__items items">
+                            <li class="footer__item item title">Contact us:</li>
+                            <li class="footer__item item">
+                                <a href="tel:89999999999" class="tel">+7(999)999-99-99</a>
+                            </li>
+                            <li class="footer__item item">
+                                <a href="mailto:example@example.com" class="mail">example@example.com</a>
+                            </li>
+                        </ul>
+                        <div class="copyright">copyright 2024</div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+    <script>
+        const catalogBtn = document.querySelector('.catalog-btn');
+        const catalog = document.querySelector('.catalog');
+
+        document.addEventListener('click', click);
+
+        function click(event){
+            if (event.target.closest('.catalog-btn')){
+                catalog.classList.toggle('_active');
+            } else if (event.target.closest('.catalog__exit')) {
+                catalog.classList.remove('_active');
+            }
+        }
+    </script>
+</body>
+</html>
