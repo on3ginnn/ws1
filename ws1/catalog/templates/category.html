@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- <link rel="stylesheet" href="./static/css/style.css"> -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>WebShop</title>
 </head>
@@ -38,7 +39,7 @@
                                 </li>
                                 <li class="navbar__item item">
                                     <a href="#" class="navbar__btn profile-btn">
-                                        <img src="{% static 'media/catalog.svg' %}" alt="profile.svg">
+                                        <img src="{% static 'media/profile.svg' %}" alt="profile.svg">
                                     </a>
                                 </li>
                             </ul>
@@ -54,37 +55,26 @@
                             <ul class="catalog__items items">
                                 {% for cat in catalog %}
                                 <li class="catalog__item item">
-<!--                                    <form action="./catalog/{{ cat.id }}">-->
-                                        <a href="./category/{{ cat.id }}">{{cat.title}}</a>
-<!--                                    </form>-->
+                                    <a href="./category/{{ cat.id }}">{{cat.title}}</a>
                                 </li>
                                 {% endfor %}
                             </ul>
                         </div>
                     </div>
-        
+
                 </aside>
             </section>
         </header>
-        
+
         <main>
             <section class="page">
                 <div class="page__body _container">
-                    <div class="page__content">
-                        
-                        <div class="page__left">
-                            <h1>Интернет магазин</h1>
-                            <div class="page__text">
-                                Покупай все, что тебе по душе
-                            </div>
-                            <div class="page__btn">
-                                <a class="page-btn red_btn btn">Каталог</a>
-                            </div>
-                        </div>
-                        <div class="page__right">
-                            <img src="{% static 'media/page.png' %}" alt="page.png">
-                        </div>
-                    </div>
+                    <h2>{{ category }}</h2>
+                    {% for prod in product %}
+                        {{ prod.title }}
+                        {{ prod.description }}
+                        {{ prod.price }}
+                    {% endfor %}
                 </div>
             </section>
         </main>
